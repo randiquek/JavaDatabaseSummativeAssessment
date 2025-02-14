@@ -9,27 +9,24 @@ public class PaymentType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Payment_Type_ID")
-    private int paymentTypeID;
-
-    @Column(name = "Payment_Type_Name")
+    private int paymentTypeId;
     private String paymentTypeName;
 
     public PaymentType() {
 
     }
 
-    public PaymentType(int paymentTypeID, String paymentTypeName) {
-        this.paymentTypeID = paymentTypeID;
+    public PaymentType(int paymentTypeId, String paymentTypeName) {
+        this.paymentTypeId = paymentTypeId;
         this.paymentTypeName = paymentTypeName;
     }
 
-    public int getPaymentTypeID() {
-        return paymentTypeID;
+    public int getPaymentTypeId() {
+        return paymentTypeId;
     }
 
-    public void setPaymentTypeID(int paymentTypeID) {
-        this.paymentTypeID = paymentTypeID;
+    public void setPaymentTypeId(int paymentTypeId) {
+        this.paymentTypeId = paymentTypeId;
     }
 
     public String getPaymentTypeName() {
@@ -43,8 +40,8 @@ public class PaymentType implements Serializable {
     @Override
     public String toString() {
         return "PaymentType{" +
-                "PaymentTypeID=" + paymentTypeID +
-                ", PaymentTypeName='" + paymentTypeName + '\'' +
+                "paymentTypeId=" + paymentTypeId +
+                ", paymentTypeName='" + paymentTypeName + '\'' +
                 '}';
     }
 }

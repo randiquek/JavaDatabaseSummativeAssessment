@@ -31,8 +31,8 @@ public class BistroApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		for(Tax tax : taxRepository.findAll()) {
-			System.out.println(tax);
+		for(Item item : itemRepository.findAll()) {
+			System.out.println(item);
 		}
 	}
 }

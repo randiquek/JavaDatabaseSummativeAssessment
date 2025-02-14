@@ -9,32 +9,31 @@ public class Server {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Server_ID")
-    private int serverID;
-
-    @Column(name = "First_Name")
+    private int serverId;
     private String firstName;
-
-    @Column(name = "Last_Name")
     private String lastName;
-
     @Temporal(TemporalType.DATE)
-    @Column(name = "Hire_Date")
     private LocalDate hireDate;
-
-    @Column(name = "Term_Date")
     private LocalDate termDate;
 
     public Server() {
 
     }
 
-    public Server(int serverID, String firstName, String lastName, LocalDate hireDate, LocalDate termDate) {
-        this.serverID = serverID;
+    public Server(int serverId, String firstName, String lastName, LocalDate hireDate, LocalDate termDate) {
+        this.serverId = serverId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.hireDate = hireDate;
         this.termDate = termDate;
+    }
+
+    public int getServerId() {
+        return serverId;
+    }
+
+    public void setServerId(int serverId) {
+        this.serverId = serverId;
     }
 
     public String getFirstName() {
@@ -45,12 +44,12 @@ public class Server {
         this.firstName = firstName;
     }
 
-    public int getServerID() {
-        return serverID;
+    public LocalDate getHireDate() {
+        return hireDate;
     }
 
-    public void setServerID(int serverID) {
-        this.serverID = serverID;
+    public void setHireDate(LocalDate hireDate) {
+        this.hireDate = hireDate;
     }
 
     public String getLastName() {
@@ -59,14 +58,6 @@ public class Server {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
-    }
-
-    public LocalDate getHireDate() {
-        return hireDate;
-    }
-
-    public void setHireDate(LocalDate hireDate) {
-        this.hireDate = hireDate;
     }
 
     public LocalDate getTermDate() {
@@ -80,11 +71,11 @@ public class Server {
     @Override
     public String toString() {
         return "Server{" +
-                "ServerID=" + serverID +
-                ", FirstName='" + firstName + '\'' +
-                ", LastName='" + lastName + '\'' +
-                ", HireDate=" + hireDate +
-                ", TermDate=" + termDate +
+                "serverId=" + serverId +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", hireDate=" + hireDate +
+                ", termDate=" + termDate +
                 '}';
     }
 }

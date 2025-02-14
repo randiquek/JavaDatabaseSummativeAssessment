@@ -11,35 +11,22 @@ public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Order_ID")
-    private int orderID;
-
-    @Column(name = "Server_ID")
-    private int serverID;
-
+    private int orderId;
+    private int serverId;
     @Temporal(TemporalType.DATE)
-    @Column(name = "Order_Date")
     private LocalDate orderDate;
-
-    @Column(name = "Sub_Total")
     private double subTotal;
-
-    @Column(name = "Tax")
     private double tax;
-
-    @Column(name = "Tip")
     private double tip;
-
-    @Column(name = "Total")
     private double total;
 
     public Order() {
 
     }
 
-    public Order(int serverID, int orderID, LocalDate orderDate, double subTotal, double tax, double tip, double total) {
-        this.serverID = serverID;
-        this.orderID = orderID;
+    public Order(int orderId, int serverId, LocalDate orderDate, double subTotal, double tax, double tip, double total) {
+        this.orderId = orderId;
+        this.serverId = serverId;
         this.orderDate = orderDate;
         this.subTotal = subTotal;
         this.tax = tax;
@@ -47,12 +34,20 @@ public class Order implements Serializable {
         this.total = total;
     }
 
-    public int getOrderID() {
-        return orderID;
+    public int getOrderId() {
+        return orderId;
     }
 
-    public void setOrderID(int orderID) {
-        this.orderID = orderID;
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
+
+    public int getServerId() {
+        return serverId;
+    }
+
+    public void setServerId(int serverId) {
+        this.serverId = serverId;
     }
 
     public LocalDate getOrderDate() {
@@ -61,14 +56,6 @@ public class Order implements Serializable {
 
     public void setOrderDate(LocalDate orderDate) {
         this.orderDate = orderDate;
-    }
-
-    public int getServerID() {
-        return serverID;
-    }
-
-    public void setServerID(int serverID) {
-        this.serverID = serverID;
     }
 
     public double getSubTotal() {
@@ -106,8 +93,8 @@ public class Order implements Serializable {
     @Override
     public String toString() {
         return "Order{" +
-                "orderID=" + orderID +
-                ", serverID=" + serverID +
+                "orderId=" + orderId +
+                ", serverId=" + serverId +
                 ", orderDate=" + orderDate +
                 ", subTotal=" + subTotal +
                 ", tax=" + tax +

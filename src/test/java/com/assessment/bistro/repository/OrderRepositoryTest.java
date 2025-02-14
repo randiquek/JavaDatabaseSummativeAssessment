@@ -1,7 +1,6 @@
 package com.assessment.bistro.repository;
 
 import com.assessment.bistro.model.Order;
-//import com.assessment.bistro.model.OrderItem;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -23,14 +23,14 @@ class TaxRepositoryTest {
     void setUp() {
         //Tax1
         expectedRecord1 = new Tax();
-        expectedRecord1.setTaxId(1);
+        //expectedRecord1.setTaxId(1);
         expectedRecord1.setTaxPercentage(new BigDecimal("5.75"));
         expectedRecord1.setStartDate(LocalDate.of(2020, 1, 1));
         expectedRecord1.setEndDate(LocalDate.of(2021, 12, 31));
 
         //Tax2
         expectedRecord2 = new Tax();
-        expectedRecord2.setTaxId(2);
+        //expectedRecord2.setTaxId(2);
         expectedRecord2.setTaxPercentage(new BigDecimal("6.25"));
         expectedRecord2.setStartDate(LocalDate.of(2022, 1, 1));
     }

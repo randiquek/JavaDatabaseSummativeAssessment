@@ -10,36 +10,29 @@ public class Tax {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Tax_ID")
-    private int taxID;
-
-    @Column(name = "Tax_Percentage")
+    private int taxId;
     private BigDecimal taxPercentage;
-
     @Temporal(TemporalType.DATE)
-    @Column(name = "Start_Date")
     private LocalDate startDate;
-
-    @Column(name = "End_Date")
     private LocalDate endDate;
 
     public Tax() {
 
     }
 
-    public Tax(int taxID, BigDecimal taxPercentage, LocalDate startDate, LocalDate endDate) {
-        this.taxID = taxID;
+    public Tax(int taxId, BigDecimal taxPercentage, LocalDate startDate, LocalDate endDate) {
+        this.taxId = taxId;
         this.taxPercentage = taxPercentage;
         this.startDate = startDate;
         this.endDate = endDate;
     }
 
-    public int getTaxID() {
-        return taxID;
+    public int getTaxId() {
+        return taxId;
     }
 
-    public void setTaxID(int taxID) {
-        this.taxID = taxID;
+    public void setTaxId(int taxId) {
+        this.taxId = taxId;
     }
 
     public BigDecimal getTaxPercentage() {
@@ -69,10 +62,10 @@ public class Tax {
     @Override
     public String toString() {
         return "Tax{" +
-                "TaxID=" + taxID +
-                ", TaxPercentage=" + taxPercentage +
-                ", StartDate=" + startDate +
-                ", EndDate=" + endDate +
+                "taxId=" + taxId +
+                ", taxPercentage=" + taxPercentage +
+                ", startDate=" + startDate +
+                ", endDate=" + endDate +
                 '}';
     }
 }

@@ -16,6 +16,7 @@ public interface ItemRepository extends JpaRepository<Item, Integer> {
     @NativeQuery("SELECT * FROM item;")
     List<Item> getAllItems();
 
-
+    @NativeQuery("SELECT * FROM item WHERE Item_Category_ID = ?1")
+    List<Item> getItemsByCategory(int itemCategoryId);
 
 }

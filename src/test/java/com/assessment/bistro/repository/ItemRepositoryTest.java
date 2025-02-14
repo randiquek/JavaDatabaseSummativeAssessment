@@ -19,12 +19,16 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
 class ItemRepositoryTest {
+
+    Item expectedItem;
+
     @Autowired
     private ItemRepository itemRepository;
 
     @BeforeEach
     public void setup() {
 
+        expectedItem = new Item(33, "Cake", 1, "A slice of cake to fill your heart", LocalDate.of(2020, 1, 1), null, 3.0);
     }
 
     @Test
@@ -34,17 +38,24 @@ class ItemRepositoryTest {
     }
     @Test
     void testGetAllItems() {
-
+        List<Item> allItems = itemRepository.getAllItems();
+        assertFalse(allItems.isEmpty());
+        assertTrue(allItems.size() >= 1);
     }
 
     @Test
     void testGetItemsByCategory() {
+        List<Item> itemsByCategory = itemRepository.getItemsByCategory(3);
+        assertFalse(itemsByCategory.isEmpty());
 
+        for (Item item : itemsByCategory) {
+            assertEquals(3, item.getItemCategoryId());
+        }
     }
 
     @Test
     void testUpdateItem() {
-
+    
     }
 
     @Test

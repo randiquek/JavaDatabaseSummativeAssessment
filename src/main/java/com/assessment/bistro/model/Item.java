@@ -10,52 +10,51 @@ public class Item implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "Item_ID")
-    private int itemID;
-
-    @Column(name = "Item_Category_ID")
-    private int itemCategoryID;
-
-    @Column(name = "Item_Description")
+    private int itemId;
+    private String itemName;
+    private int itemCategoryId;
     private String itemDescription;
-
     @Temporal(TemporalType.DATE)
-    @Column(name = "Start_Date")
     private LocalDate startDate;
-
-    @Column(name = "End_Date")
     private LocalDate endDate;
-
-    @Column(name = "Unit_Price")
     private double unitPrice;
 
     public Item() {
 
     }
 
-    public Item(int itemID, int itemCategoryID, String itemDescription, LocalDate startDate, LocalDate endDate, double unitPrice) {
-        this.itemID = itemID;
-        this.itemCategoryID = itemCategoryID;
+    public Item(int itemId, String itemName, int itemCategoryId, String itemDescription, LocalDate startDate, LocalDate endDate, double unitPrice) {
+        this.itemId = itemId;
+        this.itemName = itemName;
+        this.itemCategoryId = itemCategoryId;
         this.itemDescription = itemDescription;
         this.startDate = startDate;
         this.endDate = endDate;
         this.unitPrice = unitPrice;
     }
 
-    public int getItemID() {
-        return itemID;
+    public int getItemId() {
+        return itemId;
     }
 
-    public void setItemID(int itemID) {
-        this.itemID = itemID;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
-    public int getItemCategoryID() {
-        return itemCategoryID;
+    public String getItemName() {
+        return itemName;
     }
 
-    public void setItemCategoryID(int itemCategoryID) {
-        this.itemCategoryID = itemCategoryID;
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public int getItemCategoryId() {
+        return itemCategoryId;
+    }
+
+    public void setItemCategoryId(int itemCategoryId) {
+        this.itemCategoryId = itemCategoryId;
     }
 
     public String getItemDescription() {
@@ -93,8 +92,9 @@ public class Item implements Serializable {
     @Override
     public String toString() {
         return "Item{" +
-                "itemID=" + itemID +
-                ", itemCategoryID=" + itemCategoryID +
+                "itemId=" + itemId +
+                ", itemName='" + itemName + '\'' +
+                ", itemCategoryId=" + itemCategoryId +
                 ", itemDescription='" + itemDescription + '\'' +
                 ", startDate=" + startDate +
                 ", endDate=" + endDate +
