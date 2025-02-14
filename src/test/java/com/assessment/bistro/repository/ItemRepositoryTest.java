@@ -2,7 +2,7 @@ package com.assessment.bistro.repository;
 
 
 import com.assessment.bistro.model.Item;
-import com.assessment.bistro.model.ItemCategory;
+//import com.assessment.bistro.model.ItemCategory;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,7 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -28,7 +29,8 @@ class ItemRepositoryTest {
 
     @Test
     void testGetItemById() {
-
+        Optional<Item> item = itemRepository.getItemById(1);
+        assertTrue(item.isPresent());
     }
     @Test
     void testGetAllItems() {

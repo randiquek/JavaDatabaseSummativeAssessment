@@ -9,69 +9,82 @@ public class Server {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int ServerID;
-    private String FirstName;
-    private String LastName;
+    @Column(name = "Server_ID")
+    private int serverID;
+
+    @Column(name = "First_Name")
+    private String firstName;
+
+    @Column(name = "Last_Name")
+    private String lastName;
+
     @Temporal(TemporalType.DATE)
-    private LocalDate HireDate;
-    private LocalDate TermDate;
+    @Column(name = "Hire_Date")
+    private LocalDate hireDate;
+
+    @Column(name = "Term_Date")
+    private LocalDate termDate;
+
+    public Server() {
+
+    }
 
     public Server(int serverID, String firstName, String lastName, LocalDate hireDate, LocalDate termDate) {
-        ServerID = serverID;
-        FirstName = firstName;
-        LastName = lastName;
-        HireDate = hireDate;
-        TermDate = termDate;
+        this.serverID = serverID;
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.hireDate = hireDate;
+        this.termDate = termDate;
     }
 
     public String getFirstName() {
-        return FirstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-        FirstName = firstName;
+        this.firstName = firstName;
     }
 
     public int getServerID() {
-        return ServerID;
+        return serverID;
     }
 
     public void setServerID(int serverID) {
-        ServerID = serverID;
+        this.serverID = serverID;
     }
 
     public String getLastName() {
-        return LastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-        LastName = lastName;
+        this.lastName = lastName;
     }
 
     public LocalDate getHireDate() {
-        return HireDate;
+        return hireDate;
     }
 
     public void setHireDate(LocalDate hireDate) {
-        HireDate = hireDate;
+        this.hireDate = hireDate;
     }
 
     public LocalDate getTermDate() {
-        return TermDate;
+        return termDate;
     }
 
     public void setTermDate(LocalDate termDate) {
-        TermDate = termDate;
+        this.termDate = termDate;
     }
 
     @Override
     public String toString() {
         return "Server{" +
-                "ServerID=" + ServerID +
-                ", FirstName='" + FirstName + '\'' +
-                ", LastName='" + LastName + '\'' +
-                ", HireDate=" + HireDate +
-                ", TermDate=" + TermDate +
+                "ServerID=" + serverID +
+                ", FirstName='" + firstName + '\'' +
+                ", LastName='" + lastName + '\'' +
+                ", HireDate=" + hireDate +
+                ", TermDate=" + termDate +
                 '}';
     }
 }

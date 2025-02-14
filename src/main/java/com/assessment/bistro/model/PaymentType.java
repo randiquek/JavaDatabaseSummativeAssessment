@@ -1,9 +1,6 @@
 package com.assessment.bistro.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.io.Serializable;
 
@@ -12,35 +9,42 @@ public class PaymentType implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int PaymentTypeID;
-    private String PaymentTypeName;
+    @Column(name = "Payment_Type_ID")
+    private int paymentTypeID;
+
+    @Column(name = "Payment_Type_Name")
+    private String paymentTypeName;
+
+    public PaymentType() {
+
+    }
 
     public PaymentType(int paymentTypeID, String paymentTypeName) {
-        PaymentTypeID = paymentTypeID;
-        PaymentTypeName = paymentTypeName;
+        this.paymentTypeID = paymentTypeID;
+        this.paymentTypeName = paymentTypeName;
     }
 
     public int getPaymentTypeID() {
-        return PaymentTypeID;
+        return paymentTypeID;
     }
 
     public void setPaymentTypeID(int paymentTypeID) {
-        PaymentTypeID = paymentTypeID;
+        this.paymentTypeID = paymentTypeID;
     }
 
     public String getPaymentTypeName() {
-        return PaymentTypeName;
+        return paymentTypeName;
     }
 
     public void setPaymentTypeName(String paymentTypeName) {
-        PaymentTypeName = paymentTypeName;
+        this.paymentTypeName = paymentTypeName;
     }
 
     @Override
     public String toString() {
         return "PaymentType{" +
-                "PaymentTypeID=" + PaymentTypeID +
-                ", PaymentTypeName='" + PaymentTypeName + '\'' +
+                "PaymentTypeID=" + paymentTypeID +
+                ", PaymentTypeName='" + paymentTypeName + '\'' +
                 '}';
     }
 }

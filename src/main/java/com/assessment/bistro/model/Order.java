@@ -3,7 +3,6 @@ package com.assessment.bistro.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
@@ -12,91 +11,108 @@ public class Order implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int OrderID;
-    private int ServerID;
-    @Temporal(TemporalType.DATE)
-    private LocalDate OrderDate;
-    private double SubTotal;
-    private double Tax;
-    private double Tip;
-    private double Total;
+    @Column(name = "Order_ID")
+    private int orderID;
 
-    public Order(int orderID, int serverID, LocalDate orderDate, double subTotal, double tax, double tip, double total) {
-        OrderID = orderID;
-        ServerID = serverID;
-        OrderDate = orderDate;
-        SubTotal = subTotal;
-        Tax = tax;
-        Tip = tip;
-        Total = total;
+    @Column(name = "Server_ID")
+    private int serverID;
+
+    @Temporal(TemporalType.DATE)
+    @Column(name = "Order_Date")
+    private LocalDate orderDate;
+
+    @Column(name = "Sub_Total")
+    private double subTotal;
+
+    @Column(name = "Tax")
+    private double tax;
+
+    @Column(name = "Tip")
+    private double tip;
+
+    @Column(name = "Total")
+    private double total;
+
+    public Order() {
+
+    }
+
+    public Order(int serverID, int orderID, LocalDate orderDate, double subTotal, double tax, double tip, double total) {
+        this.serverID = serverID;
+        this.orderID = orderID;
+        this.orderDate = orderDate;
+        this.subTotal = subTotal;
+        this.tax = tax;
+        this.tip = tip;
+        this.total = total;
     }
 
     public int getOrderID() {
-        return OrderID;
+        return orderID;
     }
 
     public void setOrderID(int orderID) {
-        OrderID = orderID;
-    }
-
-    public int getServerID() {
-        return ServerID;
-    }
-
-    public void setServerID(int serverID) {
-        ServerID = serverID;
+        this.orderID = orderID;
     }
 
     public LocalDate getOrderDate() {
-        return OrderDate;
+        return orderDate;
     }
 
     public void setOrderDate(LocalDate orderDate) {
-        OrderDate = orderDate;
+        this.orderDate = orderDate;
+    }
+
+    public int getServerID() {
+        return serverID;
+    }
+
+    public void setServerID(int serverID) {
+        this.serverID = serverID;
     }
 
     public double getSubTotal() {
-        return SubTotal;
+        return subTotal;
     }
 
     public void setSubTotal(double subTotal) {
-        SubTotal = subTotal;
+        this.subTotal = subTotal;
     }
 
     public double getTax() {
-        return Tax;
+        return tax;
     }
 
     public void setTax(double tax) {
-        Tax = tax;
+        this.tax = tax;
     }
 
     public double getTip() {
-        return Tip;
+        return tip;
     }
 
     public void setTip(double tip) {
-        Tip = tip;
+        this.tip = tip;
     }
 
     public double getTotal() {
-        return Total;
+        return total;
     }
 
     public void setTotal(double total) {
-        Total = total;
+        this.total = total;
     }
 
     @Override
     public String toString() {
         return "Order{" +
-                "OrderID=" + OrderID +
-                ", ServerID=" + ServerID +
-                ", OrderDate=" + OrderDate +
-                ", SubTotal=" + SubTotal +
-                ", Tax=" + Tax +
-                ", Tip=" + Tip +
-                ", Total=" + Total +
+                "orderID=" + orderID +
+                ", serverID=" + serverID +
+                ", orderDate=" + orderDate +
+                ", subTotal=" + subTotal +
+                ", tax=" + tax +
+                ", tip=" + tip +
+                ", total=" + total +
                 '}';
     }
 }

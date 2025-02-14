@@ -10,58 +10,69 @@ public class Tax {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int TaxID;
-    private BigDecimal TaxPercentage;
+    @Column(name = "Tax_ID")
+    private int taxID;
+
+    @Column(name = "Tax_Percentage")
+    private BigDecimal taxPercentage;
+
     @Temporal(TemporalType.DATE)
-    private LocalDate StartDate;
-    private LocalDate EndDate;
+    @Column(name = "Start_Date")
+    private LocalDate startDate;
+
+    @Column(name = "End_Date")
+    private LocalDate endDate;
+
+    public Tax() {
+
+    }
 
     public Tax(int taxID, BigDecimal taxPercentage, LocalDate startDate, LocalDate endDate) {
-        TaxID = taxID;
-        TaxPercentage = taxPercentage;
-        StartDate = startDate;
-        EndDate = endDate;
+        this.taxID = taxID;
+        this.taxPercentage = taxPercentage;
+        this.startDate = startDate;
+        this.endDate = endDate;
     }
 
     public int getTaxID() {
-        return TaxID;
+        return taxID;
     }
 
     public void setTaxID(int taxID) {
-        TaxID = taxID;
+        this.taxID = taxID;
     }
 
     public BigDecimal getTaxPercentage() {
-        return TaxPercentage;
+        return taxPercentage;
     }
 
     public void setTaxPercentage(BigDecimal taxPercentage) {
-        TaxPercentage = taxPercentage;
+        this.taxPercentage = taxPercentage;
     }
 
     public LocalDate getStartDate() {
-        return StartDate;
+        return startDate;
     }
 
     public void setStartDate(LocalDate startDate) {
-        StartDate = startDate;
+        this.startDate = startDate;
     }
 
     public LocalDate getEndDate() {
-        return EndDate;
+        return endDate;
     }
 
     public void setEndDate(LocalDate endDate) {
-        EndDate = endDate;
+        this.endDate = endDate;
     }
 
     @Override
     public String toString() {
         return "Tax{" +
-                "TaxID=" + TaxID +
-                ", TaxPercentage=" + TaxPercentage +
-                ", StartDate=" + StartDate +
-                ", EndDate=" + EndDate +
+                "TaxID=" + taxID +
+                ", TaxPercentage=" + taxPercentage +
+                ", StartDate=" + startDate +
+                ", EndDate=" + endDate +
                 '}';
     }
 }
